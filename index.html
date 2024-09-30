@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        .result {
+            margin: 20px 0;
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Finance Tracker</h1>
+        <label for="income">Enter your total income:</label>
+        <input type="number" id="income" placeholder="Enter income" oninput="calculateBudget()">
+        <div class="result" id="results">
+            <p><strong>Emergency Fund:</strong> <span id="emergencyFund"></span></p>
+            <p><strong>Investments:</strong> <span id="investments"></span></p>
+            <p><strong>Donations:</strong> <span id="donations"></span></p>
+            <p><strong>Travel:</strong> <span id="travel"></span></p>
+            <p><strong>Bills:</strong> <span id="bills"></span></p>
+            <p><strong>Fun Money:</strong> <span id="funMoney"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateBudget() {
+            let income = parseFloat(document.getElementById('income').value);
+
+            if (!isNaN(income)) {
+                document.getElementById('emergencyFund').textContent = (income * 0.10).toFixed(2);
+                document.getElementById('investments').textContent = (income * 0.10).toFixed(2);
+                document.getElementById('donations').textContent = (income * 0.05).toFixed(2);
+                document.getElementById('travel').textContent = (income * 0.05).toFixed(2);
+                document.getElementById('bills').textContent = (income * 0.60).toFixed(2);
+                document.getElementById('funMoney').textContent = (income * 0.10).toFixed(2);
+            } else {
+                document.getElementById('emergencyFund').textContent = '';
+                document.getElementById('investments').textContent = '';
+                document.getElementById('donations').textContent = '';
+                document.getElementById('travel').textContent = '';
+                document.getElementById('bills').textContent = '';
+                document.getElementById('funMoney').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
